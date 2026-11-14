@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vk-gigachat-bot"
+version = "1.0.0"
+description = "ИИ-консультант сообщества ВКонтакте на GigaChat API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Evgenia Mastyshka" }]
+keywords = ["vk", "gigachat", "chatbot", "python", "long-poll", "ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Communications :: Chat",
+]
+dependencies = [
+    "vk_api>=11.9.9",
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+vk-gigachat-bot = "vk_gigachat_bot.bot:main"
+
+[project.urls]
+Homepage = "https://github.com/EvgeniaMastyshka/vk-gigachat-bot"
+Issues = "https://github.com/EvgeniaMastyshka/vk-gigachat-bot/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+# Стабильный набор правил: ошибки, потенциальные баги, неиспользуемые импорты, порядок импортов.
+select = ["E4", "E7", "E9", "F", "I"]

@@ -1,0 +1,45 @@
+# ===== Секреты и переменные окружения =====
+# Реальный .env содержит токены и никогда не коммитится.
+.env
+.env.*
+!.env.example
+
+# Приватные ключи (публичные CA-сертификаты в certs/ коммитятся)
+*.key
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# ===== Виртуальное окружение =====
+venv/
+env/
+.venv/
+
+# ===== Инструменты =====
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===== ОС =====
+.DS_Store
+Thumbs.db
+
+# ===== Логи =====
+*.log
+logs/
